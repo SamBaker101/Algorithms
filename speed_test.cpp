@@ -2,43 +2,51 @@
 //Sam Baker - 05/29/2022
 
 
-//*****Doesn't currently work, timer res to low, use chrono high res clock
+
 
 //includes
 #include <iostream>
+#include <chrono>
+
 #include "swap/swap.h"
 
 //defines
-#define ITERATIONS 10000
+#define ITERATIONS 10000000
 
+
+typedef std::chrono::microseconds microseconds_t; 
 
 //main
 int main(int argc, char * argv[]){
 	using std::cout;
 
-	time_t start, end;
 	int a = 5;
 	int b = 10;
 
-	time(&start);
+	auto start = std::chrono::high_resolution_clock::now();
 
 	for (int i = 0; i < ITERATIONS; i++){
 		//tempSwap(&a, &b); //seg fault in this one lol
 	}
-	time(&end);
+	
+	auto end = std::chrono::high_resolution_clock::now();
 
-	double time_elapsed = double(end - start);
-	cout << "Time Elapsed For " << ITERATIONS << " Iterations of Fun1: " << time_elapsed << "\n";
+	auto time_elapsed = std::chrono::duration_cast<microseconds_t>(end - start);
+	cout << "Time Elapsed For " << ITERATIONS << " Iterations of Fun1: " << time_elapsed.count() << "\n";
+	cout << "Avg MicroSecond Per Iteration: " << (time_elapsed.count()/double(ITERATIONS)) << "\n";
 
-	time(&start);
+
+	start = std::chrono::high_resolution_clock::now();
 
 	for (int i = 0; i < ITERATIONS; i++){
-		addSwap(&a, &b);
+		addSwap(&a, &b); 
 	}
-	time(&end);
+	
+	end = std::chrono::high_resolution_clock::now();
 
-	time_elapsed = double(end - start);
-	cout << "Time Elapsed For " << ITERATIONS << " Iterations of Fun2: " << time_elapsed << "\n";
+	time_elapsed = std::chrono::duration_cast<microseconds_t>(end - start);
+	cout << "Time Elapsed For " << ITERATIONS << " Iterations of Fun2: " << time_elapsed.count() << "\n";
+	cout << "Avg MicroSecond Per Iteration: " << (time_elapsed.count()/double(ITERATIONS)) << "\n";
 
 
 }
