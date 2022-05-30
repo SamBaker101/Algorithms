@@ -26,7 +26,7 @@ int main(int argc, char * argv[]){
 	auto start = std::chrono::high_resolution_clock::now();
 
 	for (int i = 0; i < iterations; i++){
-		//tempSwap(&a, &b); //seg fault in this one lol
+		tempSwap(&a, &b); //seg fault in this one lol
 	}
 	
 	auto end = std::chrono::high_resolution_clock::now();
