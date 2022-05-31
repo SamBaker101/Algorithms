@@ -11,6 +11,7 @@
 
 
 void generateValues(int *array, int* len); 
+void bubbleSort(int *array, int len);
 
 
 #endif
