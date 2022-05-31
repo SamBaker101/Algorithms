@@ -5,6 +5,10 @@
 	#define SORT 
 
 #include <iostream>
+#include <cstdlib>
+
+#define MAX_NUM 200
+
 
 void generateValues(int *array, int* len); 
 
