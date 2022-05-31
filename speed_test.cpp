@@ -1,17 +1,20 @@
-//Algorithm speed test for comparison and optimisation
-//Sam Baker - 05/29/2022
+////////////////////////////////////////////////////////
+//Algorithm speed test for comparison and optimisation//
+//          Sam Baker - 05/29/2022                    //
+////////////////////////////////////////////////////////
 
 
-
-
-//includes
+//General Includes
 #include <iostream>
 #include <chrono>
 
+
+//Test Algorithm Includes
 #include "swap/swap.h"
+#include "sort/sort.h"
 
 
-//defines
+//Defines
 typedef std::chrono::microseconds microseconds_t; 
 
 
@@ -47,6 +50,4 @@ int main(int argc, char * argv[]){
 	time_elapsed = std::chrono::duration_cast<microseconds_t>(end - start);
 	cout << "Time Elapsed For " << iterations << " Iterations of Fun2: " << time_elapsed.count() << "\n";
 	cout << "Avg MicroSecond Per Iteration: " << (time_elapsed.count()/double(iterations)) << "\n";
-
-
 }
