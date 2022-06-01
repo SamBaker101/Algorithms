@@ -6,8 +6,10 @@
 
 #include <iostream>
 #include <cstdlib>
+#include <array>
 
-#define MAX_NUM 200
+#define MAX_NUM 2000
+
 
 
 void generateValues(int *array, int* len); 

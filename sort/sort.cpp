@@ -3,23 +3,30 @@
 
 #include "sort.h"
 
+#define TEST_LENGTH 50
+
+
 //generates array of random values to be used by sorters
-void generateValues(int *array, int len){
+void generateValues(std::array<int, TEST_LENGTH> *arr){
+	using std::array;
+
 	srand((unsigned) time(0));
-	for (int i = 0; i < len; i++){
-		array[i] = rand() % MAX_NUM;
+	for (int i = 0; i < arr->size(); i++){
+		arr->at(i) = rand() % MAX_NUM;
 	}
 }
 
 
-void bubbleSort(int *array, int len){
-	using std::swap;
+void bubbleSort(std::array<int, TEST_LENGTH> *arr){
+	using std::swap; 
+	using std::array;
 
 	int i, j;
-	for (i = 0; i < (len - 1); i++){
-		for (j = 0; j < (len - i - 1); j++){
-			if (array[j] > array [j+1])
-				swap(array[j], array[j+1]);
+	for (i = 0; i < (arr->size() - 1); i++){
+		for (j = 0; j < (arr->size() - i - 1); j++){
+			//std::cout << "arr.size(), i, j" << arr->size() << i << j << "\n";
+			if (arr->at(j) > arr->at(j+1))
+				swap(arr->at(j), arr->at(j+1));
 		}
 	}
 }
@@ -27,19 +34,19 @@ void bubbleSort(int *array, int len){
 
 //just for testing
 int main(){
-	int len = 20;
-	int array[len];
+	using std::array;
+	array<int, TEST_LENGTH> arr;
 
-	generateValues(array, len);
+	generateValues(&arr);
 	
-	for (int i = 0; i < len; i++){
-		std::cout << array[i] << ", ";
+	for (auto i : arr){
+		std::cout << i << ", ";
 	}
 	std::cout << "\n\n";
-	bubbleSort(array, len);
-	for (int i = 0; i < len; i++){
-		std::cout << array[i] << ", ";
-	}
-	std::cout << "\n\n";
+	bubbleSort(&arr);
 
+	for (auto i : arr){
+		std::cout << i << ", ";
+	}
+	std::cout << "\n\n";
 }
