@@ -3,7 +3,7 @@
 
 #include "sort.h"
 
-#define TEST_LENGTH 50
+
 
 
 //generates array of random values to be used by sorters
@@ -32,7 +32,25 @@ void bubbleSort(std::array<int, TEST_LENGTH> *arr){
 }
 
 
+void selectionSort(std::array<int, TEST_LENGTH> *arr){
+	int i, j;;
+	int smallest;
+
+	while (i < arr->size()){
+		smallest = i;
+		for (j = i; j < arr->size(); j++){
+			if (arr->at(j) < arr->at(smallest))
+				smallest = j;
+		}
+		std::swap(arr->at(i), arr->at(smallest)); 
+		i ++ ;
+	}
+}
+
+
+
 //just for testing
+/*
 int main(){
 	using std::array;
 	array<int, TEST_LENGTH> arr;
@@ -43,10 +61,11 @@ int main(){
 		std::cout << i << ", ";
 	}
 	std::cout << "\n\n";
-	bubbleSort(&arr);
+	selectionSort(&arr);
 
 	for (auto i : arr){
 		std::cout << i << ", ";
 	}
 	std::cout << "\n\n";
 }
+*/
