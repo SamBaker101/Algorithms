@@ -57,7 +57,7 @@ void selectionSort(std::array<int, TEST_LENGTH> *arr){
 }
 
 
-int partitionHigh(int *arr, int low, int high){
+int partitionHigh(int arr[], int low, int high){
 	int pivot = arr[high];
 	int i = low - 1;
 
@@ -73,7 +73,7 @@ int partitionHigh(int *arr, int low, int high){
 
 
 
-void quickSort(int *arr, int low, int high){  //change to std::array ... if it makes sense to
+void quickSort(int arr[], int low, int high){  //change to std::array ... if it makes sense to
 		if (low < high){
 			int part = partitionHigh(arr, low, high);
 			quickSort(arr, low, part-1);
@@ -86,15 +86,15 @@ void quickSort(int *arr, int low, int high){  //change to std::array ... if it m
 int main(){
 	using std::array;
 	array<int, TEST_LENGTH> arr;
-	int* c_arr[TEST_LENGTH];
+	int c_arr[TEST_LENGTH];
 
-	generateValues(*c_arr, TEST_LENGTH);
+	generateValues(c_arr, TEST_LENGTH);
 	
 	for (auto i : c_arr){
 		std::cout << i << ", ";
 	}
 	std::cout << "\n\n";
-	quickSort(*c_arr, 0, TEST_LENGTH);
+	quickSort(c_arr, 0, TEST_LENGTH);
 
 	for (auto i : c_arr){
 		std::cout << i << ", ";
