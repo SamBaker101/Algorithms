@@ -65,6 +65,7 @@ int partitionHigh(int arr[], int low, int high){
 		if (arr[j] < pivot){
 			i++;
 			std::swap(arr[i], arr[j]);
+			//std::cout << "i, j, pivot, low, high: " << i << " " << j << " " << pivot << " " << low << " " << high << "\n";
 		}
 	}
 	std::swap(arr[i+1], arr[high]);
@@ -94,7 +95,7 @@ int main(){
 		std::cout << i << ", ";
 	}
 	std::cout << "\n\n";
-	quickSort(c_arr, 0, TEST_LENGTH);
+	quickSort(c_arr, 0, TEST_LENGTH-1);
 
 	for (auto i : c_arr){
 		std::cout << i << ", ";
