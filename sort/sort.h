@@ -15,10 +15,11 @@
 
 void generateValues(std::array<int, TEST_LENGTH> *arr); 
 void generateValues(int *arr, int size);
-void bubbleSort(int *array, int len);
+void bubbleSort(std::array<int, TEST_LENGTH> *arr);
 void selectionSort(std::array<int, TEST_LENGTH> *arr);
 void quickSort(int *arr, int low, int high);
 int partitionHigh(int *arr, int low, int high);
+void insertSort(std::array<int, TEST_LENGTH> *arr); 
 
 
 #endif

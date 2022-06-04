@@ -82,22 +82,37 @@ void quickSort(int arr[], int low, int high){  //change to std::array ... if it 
 		}
 }
 
-//just for testing
 
+void insertSort(std::array<int, TEST_LENGTH> *arr){
+	int key, j;
+	for (int i = 1; i < arr->size(); ++i){
+		key = arr->at(i);
+		j = i - 1;
+
+		while (j >= 0 && key < arr->at(j)){
+			arr->at(j+1) = arr->at(j);
+			j = j-1;
+			//std::cout << j << "\n";
+		}
+		arr->at(j+1) = key;
+	}
+}
+
+//just for testing
 int main(){
 	using std::array;
 	array<int, TEST_LENGTH> arr;
 	int c_arr[TEST_LENGTH];
 
-	generateValues(c_arr, TEST_LENGTH);
+	generateValues(&arr);
 	
-	for (auto i : c_arr){
+	for (auto i : arr){
 		std::cout << i << ", ";
 	}
 	std::cout << "\n\n";
-	quickSort(c_arr, 0, TEST_LENGTH-1);
+	insertSort(&arr);
 
-	for (auto i : c_arr){
+	for (auto i : arr){
 		std::cout << i << ", ";
 	}
 	std::cout << "\n\n";
