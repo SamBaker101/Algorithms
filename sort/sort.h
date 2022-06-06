@@ -20,8 +20,8 @@ void selectionSort(std::array<int, TEST_LENGTH> *arr);
 void quickSort(int *arr, int low, int high);
 int partitionHigh(int *arr, int low, int high);
 void insertSort(std::array<int, TEST_LENGTH> *arr); 
-void heapify(std::array<int, TEST_LENGTH> *arr);
-void heapSort(std::array<int, TEST_LENGTH> *arr);
+void heapify(std::array<int, TEST_LENGTH> *arr, int n, int index);
+void heapSort(std::array<int, TEST_LENGTH> *arr, int n);
 
 
 

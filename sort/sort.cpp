@@ -98,6 +98,17 @@ void insertSort(std::array<int, TEST_LENGTH> *arr){
 	}
 }
 
+
+void heapify(std::array<int, TEST_LENGTH> *arr, int n, int index){
+	continue;
+}
+
+
+void heapSort(std::array<int, TEST_LENGTH> *arr, int n){
+	continue;
+}
+
+
 //just for testing
 int main(){
 	using std::array;
