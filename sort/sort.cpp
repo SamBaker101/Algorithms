@@ -100,7 +100,21 @@ void insertSort(std::array<int, TEST_LENGTH> *arr){
 
 
 void heapify(std::array<int, TEST_LENGTH> *arr, int n, int index){
-	continue;
+	int left = 2* index + 1;
+	int right = left + 1;
+
+	int largest = index;
+
+	if (left < n && arr->at(left) > arr->at(largest))
+		largest = left;
+
+	else if (right < n && arr->at(right) > arr->at(largest))
+		largest = right;
+		
+	if (largest != i){
+		std::swap(arr->at(i), arr->at(largest));
+		heapify(arr, n, largest);	
+	}
 }
 
 
