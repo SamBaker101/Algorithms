@@ -118,12 +118,12 @@ void heapify(std::array<int, TEST_LENGTH> *arr, int n, int index){
 }
 
 
-void heapSort(std::array<int, TEST_LENGTH> *arr, int n){
+void heapSort(std::array<int, TEST_LENGTH> *arr){
 	int index;
-	for (index = n/2 - 1; index >= 0; index --) 
-		heapify(arr, n, index);
+	for (index = arr->size()/2 - 1; index >= 0; index --) 
+		heapify(arr, arr->size(), index);
 
-	for (index = n - 1 ; index > 0; index --){
+	for (index = arr->size() - 1 ; index > 0; index --){
 		std::swap(arr->at(0), arr->at(index));
 		heapify(arr, index, 0);
 
@@ -143,7 +143,7 @@ int main(){
 		std::cout << i << ", ";
 	}
 	std::cout << "\n\n";
-	heapSort(&arr, arr.size());
+	heapSort(&arr);
 
 	for (auto i : arr){
 		std::cout << i << ", ";
