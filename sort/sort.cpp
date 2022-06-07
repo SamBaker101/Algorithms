@@ -108,18 +108,26 @@ void heapify(std::array<int, TEST_LENGTH> *arr, int n, int index){
 	if (left < n && arr->at(left) > arr->at(largest))
 		largest = left;
 
-	else if (right < n && arr->at(right) > arr->at(largest))
+	if (right < n && arr->at(right) > arr->at(largest))
 		largest = right;
 		
-	if (largest != i){
-		std::swap(arr->at(i), arr->at(largest));
+	if (largest != index){
+		std::swap(arr->at(index), arr->at(largest));
 		heapify(arr, n, largest);	
 	}
 }
 
 
 void heapSort(std::array<int, TEST_LENGTH> *arr, int n){
-	continue;
+	int index;
+	for (index = n/2 - 1; index >= 0; index --) 
+		heapify(arr, n, index);
+
+	for (index = n - 1 ; index > 0; index --){
+		std::swap(arr->at(0), arr->at(index));
+		heapify(arr, index, 0);
+
+	}
 }
 
 
@@ -135,7 +143,7 @@ int main(){
 		std::cout << i << ", ";
 	}
 	std::cout << "\n\n";
-	insertSort(&arr);
+	heapSort(&arr, arr.size());
 
 	for (auto i : arr){
 		std::cout << i << ", ";
