@@ -132,6 +132,7 @@ void heapSort(std::array<int, TEST_LENGTH> *arr){
 
 
 //just for testing
+/*
 int main(){
 	using std::array;
 	array<int, TEST_LENGTH> arr;
@@ -150,3 +151,4 @@ int main(){
 	}
 	std::cout << "\n\n";
 }
+*/
