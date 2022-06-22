@@ -6,8 +6,6 @@
 
 //generates array of random values to be used by search
 void generateValues(std::array<int, TEST_LENGTH> *arr){
-	using std::array;
-
 	srand((unsigned) time(0));
 	for (int i = 0; i < arr->size(); i++){
 		arr->at(i) = rand() % MAX_NUM;
@@ -33,6 +31,21 @@ int simpleSearch(std::array<int, TEST_LENGTH> *arr, int target){
 }
 
 
+int binSearch(std::array<int, TEST_LENGTH> *arr, int target){
+	int first = 0;
+	int last = arr->size() - 1;
+	int index;
+
+	while (first <= last){
+		index = (first + last)/2;
+		if (arr->at(index) == target) return index;
+		else if (arr->at(index) > target) last = index - 1;
+		else if (arr->at(index) < target) first = index + 1;
+	}
+
+	return -1;
+}
+
 //just for testing
 int main(){
 	using std::array;
@@ -49,7 +62,7 @@ int main(){
 	}
 	std::cout << "\n\n";
 
-	int index = simpleSearch(&arr, target);
+	int index = binSearch(&arr, target);
 
 	std::cout << index << " : " << arr.at(index) << "\n";
 
