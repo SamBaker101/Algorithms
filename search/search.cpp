@@ -24,7 +24,7 @@ void generateValues(int *arr, int size){
 
 int simpleSearch(std::array<int, TEST_LENGTH> *arr, int target){
 	int i;
-	for (i = 0; i < (arr->size() - 1); i++){
+	for (i = 0; i < (arr->size()); i++){
 		if (arr->at(i) == target) return i;
 	}
 	return -1;
@@ -62,8 +62,12 @@ int main(){
 	}
 	std::cout << "\n\n";
 
-	int index = binSearch(&arr, target);
-
+	int index = simpleSearch(&arr, target);
 	std::cout << index << " : " << arr.at(index) << "\n";
 
+	index = simpleSearch(&arr, arr.at(0));
+	std::cout << index << " : " << arr.at(index) << "\n";
+
+	index = simpleSearch(&arr, arr.at(arr.size() - 1));
+	std::cout << index << " : " << arr.at(index) << "\n";
 }
