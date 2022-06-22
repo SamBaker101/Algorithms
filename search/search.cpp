@@ -24,6 +24,14 @@ void generateValues(int *arr, int size){
 }
 
 
+int simpleSearch(std::array<int, TEST_LENGTH> *arr, int target){
+	int i;
+	for (i = 0; i < (arr->size() - 1); i++){
+		if (arr->at(i) == target) return i;
+	}
+	return -1;
+}
+
 
 //just for testing
 int main(){
@@ -33,14 +41,16 @@ int main(){
 	generateValues(&arr);
 	std::sort(arr.begin(), arr.end());
 
-	for (auto i : arr){
-		std::cout << i << ", ";
-	}
-	std::cout << "\n\n";
-
+	srand((unsigned) time(0));
+	int target = arr.at(rand() % arr.size());
 
 	for (auto i : arr){
 		std::cout << i << ", ";
 	}
 	std::cout << "\n\n";
+
+	int index = simpleSearch(&arr, target);
+
+	std::cout << index << " : " << arr.at(index) << "\n";
+
 }
